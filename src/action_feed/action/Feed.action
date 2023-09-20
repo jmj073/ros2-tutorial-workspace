@@ -1,0 +1,7 @@
+float64 period_second
+uint32 feed_count
+string name
+---
+uint32 sended_count
+---
+string feed
