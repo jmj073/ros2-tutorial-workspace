@@ -1,4 +1,4 @@
-float64 period_second
+float64 frequency
 uint32 feed_count
 string name
 ---

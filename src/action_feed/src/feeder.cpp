@@ -40,7 +40,7 @@ public: // public member functions
       this->get_node_clock_interface(),
       this->get_node_logging_interface(),
       this->get_node_waitables_interface(),
-      "feeder",
+      "feed",
       std::bind(&Feeder::handle_goal, this, _1, _2),
       std::bind(&Feeder::handle_cancel, this, _1),
       std::bind(&Feeder::handle_accepted, this, _1)
@@ -79,7 +79,7 @@ private: // private member functions
   {
     const auto goal = goal_handle->get_goal();
     auto feedback = std::make_shared<Message::Feedback>();
-    rclcpp::Rate loop_rate(goal->period_second);
+    rclcpp::Rate loop_rate(goal->frequency);
 
     RCLCPP_INFO(this->get_logger(), "execute: %s", goal->name.c_str());
 

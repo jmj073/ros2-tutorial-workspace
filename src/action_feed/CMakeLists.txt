@@ -18,15 +18,19 @@ ament_export_dependencies(rosidl_default_runtime)
 
 add_executable(feeder src/feeder.cpp)
 ament_target_dependencies(feeder rclcpp rclcpp_action)
+add_executable(eater src/eater.cpp)
+ament_target_dependencies(eater rclcpp rclcpp_action)
 
 install(TARGETS
   feeder
+  eater
   DESTINATION lib/${PROJECT_NAME})
 
 rosidl_get_typesupport_target(cpp_typesupport_target
   ${PROJECT_NAME} rosidl_typesupport_cpp)
 
 target_link_libraries(feeder "${cpp_typesupport_target}")
+target_link_libraries(eater "${cpp_typesupport_target}")
 
 if(BUILD_TESTING)
   find_package(ament_lint_auto REQUIRED)
